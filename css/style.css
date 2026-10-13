@@ -2637,6 +2637,20 @@ button {
   color: var(--text-muted);
 }
 
+/* Tombol untukk ke halaman absensikegiatan */
+.btn-absensi-kg {
+  background: linear-gradient(135deg, #059669, #10b981);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.35);
+  text-decoration: none;
+}
+.btn-absensi-kg:hover {
+  filter: brightness(1.08);
+  box-shadow: 0 6px 18px rgba(16, 185, 129, 0.35);
+  color: #fff;
+  text-decoration: none;
+}
+
 /* --- Buttons --- */
 .btn-kegiatan {
   display: inline-flex;
