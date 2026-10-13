@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://monitorwebinarpusbangkom.web.app/sitemap.xml
+Sitemap: https://pusbangkomatrbpn.web.app/sitemap.xml
 
 # Disallow admin paths (jika ada)
 Disallow: /data/
