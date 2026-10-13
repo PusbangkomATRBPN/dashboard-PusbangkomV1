@@ -1,0 +1,27 @@
+{
+  "name": "Dashboard Monitoring Webinar",
+  "short_name": "Monitor Webinar",
+  "description": "Dashboard Monitoring Webinar Pusat Pengembangan Kompetensi ASN",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F0C332",
+  "theme_color": "#F0C332",
+  "orientation": "any",
+  "lang": "id",
+  "icons": [
+    {
+      "src": "img/icon.webp",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "img/bannerBangkom.webp",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["productivity", "government"],
+  "screenshots": []
+}

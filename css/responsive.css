@@ -1,0 +1,610 @@
+/* =========================================================
+   Dashboard Monitoring Webinar — Responsive Styles
+   Pusbangkom | Version 1.0.0
+   ========================================================= */
+
+/* =========================================================
+   BREAKPOINTS
+   xl:  ≥ 1280px (large desktop)
+   lg:  ≥ 1024px (desktop)
+   md:  ≥ 768px  (tablet)
+   sm:  < 768px  (mobile)
+   xs:  < 480px  (small mobile)
+   ========================================================= */
+
+/* =========================================================
+   1. LARGE DESKTOP (≥ 1400px)
+   ========================================================= */
+@media (min-width: 1400px) {
+  .stats-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .charts-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .page-content {
+    padding: 32px 40px 60px;
+  }
+}
+
+/* =========================================================
+   2. DESKTOP (1024px – 1399px) — DEFAULT
+   ========================================================= */
+@media (min-width: 1280px) and (max-width: 1399px) {
+  .stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* =========================================================
+   3. TABLET LANDSCAPE (768px – 1023px)
+   ========================================================= */
+@media (max-width: 1023px) {
+  /* Sidebar — always collapse on tablet */
+  .sidebar {
+    width: var(--sidebar-collapsed);
+  }
+
+  .sidebar-brand-text,
+  .nav-label,
+  .nav-section-label,
+  .sidebar-user-info {
+    opacity: 0;
+    width: 0;
+    overflow: hidden;
+  }
+
+  .main-content {
+    margin-left: var(--sidebar-collapsed);
+  }
+
+  /* Stats Grid — 2 columns */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Charts — single column */
+  .charts-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .row-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-grid .span-2 {
+    grid-column: span 1;
+  }
+
+  /* Topbar */
+  .topbar-title {
+    font-size: 13px;
+  }
+
+  .topbar-search input {
+    width: 160px;
+  }
+
+  .topbar-search input:focus {
+    width: 200px;
+  }
+
+  /* Page content */
+  .page-content {
+    padding: 20px;
+  }
+}
+
+/* =========================================================
+   4. TABLET PORTRAIT (768px – 1023px)
+   ========================================================= */
+@media (max-width: 900px) {
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .report-summary-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   5. MOBILE (< 768px) — MAJOR LAYOUT SHIFT
+   ========================================================= */
+@media (max-width: 767px) {
+  /* Sidebar hidden — becomes offcanvas overlay */
+  .sidebar {
+    width: var(--sidebar-width);
+    transform: translateX(-100%);
+    z-index: 950;
+  }
+
+  .sidebar.mobile-open {
+    transform: translateX(0);
+    box-shadow: var(--shadow-xl);
+  }
+
+  /* Mobile overlay when sidebar is open */
+  .sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 940;
+    backdrop-filter: blur(2px);
+  }
+
+  .sidebar-overlay.visible {
+    display: block;
+  }
+
+  /* Show all sidebar text on mobile open */
+  .sidebar.mobile-open .sidebar-brand-text,
+  .sidebar.mobile-open .nav-label,
+  .sidebar.mobile-open .nav-section-label,
+  .sidebar.mobile-open .sidebar-user-info {
+    opacity: 1;
+    width: auto;
+    overflow: visible;
+  }
+
+  /* Main content — full width */
+  .main-content {
+    margin-left: 0;
+  }
+
+  /* Topbar */
+  .topbar {
+    padding: 0 16px;
+    gap: 10px;
+  }
+
+  /* Dashboard hero: stack vertikal di mobile */
+  .dashboard-hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .dashboard-hero-text {
+    max-width: 100%;
+    padding: 18px 16px 14px;
+  }
+
+  .dashboard-hero-banner {
+    min-height: 110px;
+    max-height: 130px;
+  }
+
+  .dashboard-hero-img {
+    max-height: 130px;
+  }
+
+  .topbar-title {
+    font-size: 12px;
+  }
+
+  /* Hide search on mobile — replace with icon */
+  .topbar-search {
+    display: none;
+  }
+
+  .topbar-datetime {
+    display: none;
+  }
+
+  /* Stats grid — 2 columns on mobile */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .stat-value {
+    font-size: 24px;
+  }
+
+  /* Charts — single column */
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .row-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-grid .span-2 {
+    grid-column: 1;
+  }
+
+  /* Page content */
+  .page-content {
+    padding: 16px;
+  }
+
+  /* Page header */
+  .page-title {
+    font-size: 20px;
+  }
+
+  /* Tables — horizontal scroll */
+  .table-wrapper {
+    border-radius: var(--radius-md);
+  }
+
+  /* Toast — bottom full on mobile */
+  .toast-container {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+  }
+
+  .toast {
+    min-width: unset;
+    max-width: 100%;
+  }
+
+  /* Modal */
+  .modal-overlay {
+    padding: 12px;
+    align-items: flex-end;
+  }
+
+  .modal-box {
+    max-height: 90vh;
+    border-radius: var(--radius-xl) var(--radius-xl) var(--radius-md) var(--radius-md);
+  }
+
+  /* DataTable — hide some columns */
+  .dt-hide-mobile {
+    display: none;
+  }
+
+  /* Card padding */
+  .card-body {
+    padding: var(--space-md);
+  }
+
+  .card-header {
+    padding: 14px var(--space-md);
+  }
+
+  /* Stat card padding */
+  .stat-card {
+    padding: var(--space-md);
+  }
+}
+
+/* =========================================================
+   6. SMALL MOBILE (< 480px)
+   ========================================================= */
+@media (max-width: 479px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px;
+  }
+
+  .stat-card::before {
+    display: none;
+  }
+
+  .stat-card-header {
+    margin-bottom: 0;
+    flex-direction: row;
+  }
+
+  .stat-value {
+    font-size: 20px;
+  }
+
+  .stat-progress {
+    display: none;
+  }
+
+  .page-title {
+    font-size: 18px;
+  }
+
+  .topbar-profile-name {
+    display: none;
+  }
+
+  .topbar-btn:nth-child(n+3) {
+    display: none;
+  }
+}
+
+/* =========================================================
+   7. PRINT STYLES
+   ========================================================= */
+@media print {
+  .sidebar,
+  .topbar,
+  .topbar-actions,
+  .btn,
+  .modal-overlay {
+    display: none !important;
+  }
+
+  .main-content {
+    margin-left: 0 !important;
+  }
+
+  .page-content {
+    padding: 0 !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  .card, .table-wrapper {
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+
+  .charts-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* =========================================================
+   8. REDUCED MOTION
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* =========================================================
+   9. HIGH CONTRAST MODE SUPPORT
+   ========================================================= */
+@media (forced-colors: active) {
+  .stat-card,
+  .card,
+  .badge,
+  .btn {
+    border: 2px solid ButtonText;
+  }
+
+  .nav-item.active {
+    outline: 2px solid Highlight;
+  }
+}
+
+/* =========================================================
+   10. ALUMNI MONITORING — Base Layout
+   ========================================================= */
+
+/* Card wrapper */
+.alumni-search-body {
+  padding: 28px 32px;
+}
+
+/* Filter row: 4 kolom di layar besar */
+.alumni-filter-row {
+  display: grid;
+  grid-template-columns: 1fr 220px 180px auto;
+  gap: 16px;
+  align-items: end;
+}
+
+/* Tombol Cari — lebar penuh di kolom-nya */
+.alumni-filter-row > div:last-child .btn {
+  width: 100%;
+  white-space: nowrap;
+}
+
+/* =========================================================
+   Alumni — Laptop Besar (1024px – 1280px)
+   ========================================================= */
+@media (max-width: 1280px) {
+  .alumni-filter-row {
+    grid-template-columns: 1fr 190px 160px auto;
+    gap: 12px;
+  }
+
+  .alumni-search-body {
+    padding: 22px 24px;
+  }
+}
+
+/* =========================================================
+   Alumni — Laptop Kecil (< 1100px)
+   ========================================================= */
+@media (max-width: 1100px) {
+  /* Pisah menjadi 2 baris:
+     Baris 1: Input nama/NIP (full)
+     Baris 2: Unit kerja | Provinsi | Tombol Cari */
+  .alumni-filter-row {
+    grid-template-columns: 1fr 1fr auto;
+    grid-template-rows: auto auto;
+    gap: 12px 12px;
+  }
+
+  /* NIP/Nama: ambil full lebar baris 1 */
+  .alumni-filter-row > div:nth-child(1) {
+    grid-column: 1 / -1;
+  }
+
+  /* Unit Kerja: baris 2 kolom 1 */
+  .alumni-filter-row > div:nth-child(2) {
+    grid-column: 1;
+  }
+
+  /* Provinsi: baris 2 kolom 2 */
+  .alumni-filter-row > div:nth-child(3) {
+    grid-column: 2;
+  }
+
+  /* Tombol Cari: baris 2 kolom 3 */
+  .alumni-filter-row > div:nth-child(4) {
+    grid-column: 3;
+    align-self: end;
+  }
+
+  .alumni-search-body {
+    padding: 20px;
+  }
+}
+
+/* =========================================================
+   Alumni — Tablet (< 1024px) sudah auto-collapsed sidebar
+   ========================================================= */
+@media (max-width: 1023px) {
+  .alumni-filter-row {
+    grid-template-columns: 1fr 1fr auto;
+    gap: 10px;
+  }
+
+  .alumni-filter-row > div:nth-child(1) {
+    grid-column: 1 / -1;
+  }
+
+  .alumni-search-body {
+    padding: 18px 20px;
+  }
+}
+
+/* =========================================================
+   Alumni — Tablet Kecil (< 768px)
+   ========================================================= */
+@media (max-width: 767px) {
+  /* Stack semua jadi 1 kolom */
+  .alumni-filter-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .alumni-filter-row > div:nth-child(1),
+  .alumni-filter-row > div:nth-child(2),
+  .alumni-filter-row > div:nth-child(3),
+  .alumni-filter-row > div:nth-child(4) {
+    grid-column: 1;
+  }
+
+  .alumni-search-body {
+    padding: 16px;
+  }
+}
+
+/* =========================================================
+   Alumni — Mobile Kecil (< 480px)
+   ========================================================= */
+@media (max-width: 479px) {
+  .alumni-search-body {
+    padding: 14px 12px;
+  }
+
+  .alumni-filter-row {
+    gap: 8px;
+  }
+}
+
+/* =========================================================
+   FILTER BAR — Responsive (Webinar & Pelatihan)
+   ========================================================= */
+
+/* --- Tablet (≤ 1023px): search input lebih kecil, tetap satu baris --- */
+@media (max-width: 1023px) {
+  .filter-bar {
+    padding: 12px 16px;
+    gap: 8px;
+  }
+
+  .filter-bar-actions .table-search-input {
+    min-width: 120px;
+  }
+}
+
+/* --- Tablet kecil / Mobile Landscape (≤ 767px) --- */
+@media (max-width: 767px) {
+  .filter-bar {
+    padding: 12px 14px;
+    gap: 8px;
+  }
+
+  /* Chips wrap dengan baik */
+  .filter-bar-chips {
+    gap: 5px;
+    row-gap: 5px;
+  }
+
+  /* Actions tetap satu baris, search mengisi penuh */
+  .filter-bar-actions {
+    gap: 6px;
+  }
+
+  /* Sembunyikan label teks tombol, sisakan hanya ikon */
+  .btn-label-full {
+    display: none;
+  }
+
+  /* Padding tombol mengecil karena tidak ada label */
+  .filter-action-btn {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  /* Search full width */
+  .filter-bar-actions .table-search-wrap {
+    flex: 1 1 auto;
+  }
+
+  .filter-bar-actions .table-search-input {
+    width: 100%;
+    min-width: 0;
+  }
+
+  /* Nonaktifkan animasi expand karena sudah penuh */
+  .filter-bar-actions .table-search-input:focus {
+    width: 100%;
+  }
+}
+
+/* --- Mobile sangat kecil (≤ 479px) --- */
+@media (max-width: 479px) {
+  .filter-bar {
+    padding: 10px 12px;
+    gap: 8px;
+  }
+
+  .filter-bar-chips {
+    gap: 4px;
+    row-gap: 4px;
+  }
+
+  /* Chip filter sedikit lebih kecil */
+  .filter-bar-chips .btn.btn-sm {
+    font-size: 11px;
+    padding: 4px 8px;
+  }
+
+  /* Refresh button juga hanya ikon */
+  .filter-bar-actions .btn-primary .btn-label-full {
+    display: none;
+  }
+}
